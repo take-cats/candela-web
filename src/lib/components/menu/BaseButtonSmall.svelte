@@ -1,10 +1,13 @@
+```
 <script lang="ts">
     export let name: string
-    export let execute: Function
-    export let discirption: string
+
+    export let execute: () => void = function (): void {
+        console.log(`Button \"${name}\" is not implemented.`)
+    }
 </script>
 
-<button class="menu-btn">
+<button class="menu-btn" on:click={() => execute()}>
     {name}
 </button>
 
@@ -18,3 +21,4 @@
         cursor: pointer;
     }
 </style>
+```
