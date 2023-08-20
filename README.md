@@ -1,38 +1,20 @@
-# create-svelte
+# 🕯️ Candela PWA
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## ⭐ 소개
 
-## Creating a project
+이 프로젝트는 [OSS.KR](https://oss.kr/)에서 주관하는 공개 SW 개발자 대회에 참여하기 위해 제작되었습니다.    
+Candela PWA는 웹 기반의 오픈소스 시각장애인 도우미 어플리케이션입니다.  
+여러가지 오픈소스 AI 모델 등 기술의 혜택을 통합하여 쉽게 사용할 수 있도록 제공하는걸 목표로 제작하고 있습니다.
 
-If you're seeing this, you've probably already done this step. Congrats!
+> 피드백 및 기능 추가 요청을 환영합니다. 자유롭게 이슈를 열어주세요.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## 🌘 Development
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+> git clone https://github.com/take-cats/candela-web  
+> cd candela-web  
+> pnpm install  
+> pnpm run dev
 
-## Developing
+## ©️ License
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+MIT License
