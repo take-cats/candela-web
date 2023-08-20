@@ -12,3 +12,6 @@ vite.config.ts.timestamp-*
 .idea
 .fleet
 .vscode
+
+**/*.js
+**/*.js.map
