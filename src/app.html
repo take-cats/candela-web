@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <link rel="icon" href="%sveltekit.assets%/favicon.png"/>
-    <meta name="viewport" content="width=device-width"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Candela</title>
+    <link rel="icon" href="/favicon.png" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="mask-icon" href="/maskable-icon-512x512.png" color="#5bbad5" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-512x512.png" sizes="180x180" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="manifest.json" />
     %sveltekit.head%
 </head>
 <body data-sveltekit-preload-data="hover">
 <div style="display: contents">%sveltekit.body%</div>
+<script>
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+            .register("/sw.js")
+            .then(registration => {
+                console.log("Service worker registered: ", registration)
+            })
+            .catch(err => {
+                console.error("Service worker registration failed: ", err)
+            })
+    } else {
+        console.log("Service worker not supported")
+    }
+</script>
 </body>
 </html>
 <style>
