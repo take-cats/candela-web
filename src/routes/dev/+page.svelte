@@ -1,5 +1,5 @@
 <script>
-    import BigGoToButton from "$lib/components/dev/BigGoToButton.svelte";
+    import BigGoToButton from "$lib/components/dev/BigGoToButton.svelte"
 </script>
 
 <div id="bg-dev-page">
@@ -14,9 +14,13 @@
             goto="/api/docs"
         />
         <BigGoToButton
+            name="Application"
+            goto="/app"
         />
-        <BigGoToButton/>
-        <BigGoToButton/>
+        <BigGoToButton
+            name="GitHub"
+            goto="https://github.com/take-cats/candela"
+        />
     </div>
 </div>
 
