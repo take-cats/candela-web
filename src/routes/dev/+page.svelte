@@ -3,7 +3,10 @@
 </script>
 
 <div id="bg-dev-page">
-    <h2 id="dev-title">
+    <h2
+        id="dev-title"
+        aria-label="Developer's Page"
+    >
         🕯️
         ️ Dev👨‍💻's Page
         🕯️
