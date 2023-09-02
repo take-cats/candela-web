@@ -17,3 +17,5 @@ vite.config.ts.timestamp-*
 **/*.js.map
 
 !static/**/*.js
+
+cert
