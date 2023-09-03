@@ -1,5 +1,9 @@
+<script>
+    import ObjectDetection from "$lib/components/camera/ObjectDetection.svelte"
+</script>
+
 <div id="camera-holder">
-    Camera here!
+    <ObjectDetection />
 </div>
 <style>
     #camera-holder {

@@ -22,5 +22,10 @@
 		"vite": "^4.4.2",
 		"vite-plugin-pwa": "^0.16.4"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@tensorflow-models/coco-ssd": "^2.2.3",
+		"@tensorflow/tfjs": "^4.10.0",
+		"@tensorflow/tfjs-backend-webgl": "^4.10.0"
+	}
 }
