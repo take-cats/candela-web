@@ -3,11 +3,15 @@
     import { onMount } from "svelte"
     import * as cocoSsd from "@tensorflow-models/coco-ssd"
 
+    import * as tf from "@tensorflow/tfjs"
+    import "@tensorflow/tfjs-backend-webgl"
+
     let video: HTMLVideoElement
     let canvas: HTMLCanvasElement
     let context: CanvasRenderingContext2D | null
 
     onMount(async () => {
+        await tf.setBackend("webgl")
         context = canvas.getContext("2d")
         if (!context) return
 
@@ -26,20 +30,19 @@
             canvas.height = video.videoHeight
 
             predictions.forEach((prediction: DetectedObject) => {
-                if (context) {
-                    context.beginPath()
-                    context.rect(...prediction.bbox)
-                    context.lineWidth = 1
-                    context.strokeStyle = "#" + Math.floor(Math.random() * 16777215).toString(16)
-                    context.stroke()
-                    context.font = "24px Arial"
-                    context.fillStyle = context.strokeStyle
-                    context.fillText(
-                        `${prediction.class} ${parseInt((prediction.score * 100).toString())}%`,
-                        prediction.bbox[0],
-                        prediction.bbox[1] < 25 ? prediction.bbox[1] + 25 : prediction.bbox[1],
-                    )
-                }
+                if (!context) return
+                context.beginPath()
+                context.rect(...prediction.bbox)
+                context.lineWidth = 1
+                context.strokeStyle = "#" + Math.floor(Math.random() * 16777215).toString(16)
+                context.stroke()
+                context.font = "24px Arial"
+                context.fillStyle = context.strokeStyle
+                context.fillText(
+                    `${prediction.class} ${parseInt((prediction.score * 100).toString())}%`,
+                    prediction.bbox[0],
+                    prediction.bbox[1] < 25 ? prediction.bbox[1] + 25 : prediction.bbox[1],
+                )
             })
             requestAnimationFrame(() => predict(model))
         })
