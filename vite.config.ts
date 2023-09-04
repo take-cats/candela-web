@@ -1,3 +1,4 @@
+// @ts-ignore // prevent foolish IDE's warning
 import { sveltekit } from "@sveltejs/kit/vite"
 import { defineConfig } from "vite"
 // import { readFileSync } from "fs"
