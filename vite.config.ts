@@ -9,7 +9,6 @@ export default defineConfig({
         sveltekit(),
     ],
     server: {
-        port: 80,
         fs: {
             allow: ["static"],
         },
