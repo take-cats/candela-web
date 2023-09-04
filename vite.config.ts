@@ -17,4 +17,7 @@ export default defineConfig({
         //     key: readFileSync("./cert/key.pem"),
         // },
     },
+    preview: {
+        port: 3000,
+    },
 })
