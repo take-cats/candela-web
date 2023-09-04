@@ -1,21 +1,21 @@
 <script lang="ts">
     import type { DetectedObject } from "@tensorflow-models/coco-ssd"
     import { onMount } from "svelte"
-    import * as cocoSsd from "@tensorflow-models/coco-ssd"
-
-    import * as tf from "@tensorflow/tfjs"
-    import "@tensorflow/tfjs-backend-webgl"
 
     let video: HTMLVideoElement
     let canvas: HTMLCanvasElement
     let context: CanvasRenderingContext2D | null
 
     onMount(async () => {
-        await tf.setBackend("webgl")
+        // dynamic import for avoid big chunk size
+        import("@tensorflow/tfjs-backend-webgl")
+        await (await import("@tensorflow/tfjs")).setBackend("webgl")
+
         context = canvas.getContext("2d")
         if (!context) return
 
-        const model = await cocoSsd.load()
+        // dynamic import here too
+        const model = (await import("@tensorflow-models/coco-ssd")).load()
 
         video.srcObject = await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
         video.onloadedmetadata = () => {
