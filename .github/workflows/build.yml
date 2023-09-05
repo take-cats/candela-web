@@ -28,7 +28,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Setup pnpm
-        uses: pnpm/setup-pnpm@v2
+        uses: pnpm/action-setup@v2
 
       - name: Get pnpm store
         id: pnpm-cache
