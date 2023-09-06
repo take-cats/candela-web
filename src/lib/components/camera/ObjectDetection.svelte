@@ -17,7 +17,10 @@
 
         const model = await cocoSsd.load()
 
-        video.srcObject = await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+        video.srcObject = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: "environment" },
+            audio: false,
+        })
         video.onloadedmetadata = () => {
             predict(model)
         }
