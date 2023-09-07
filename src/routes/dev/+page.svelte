@@ -24,6 +24,10 @@
             name="GitHub"
             goto="https://github.com/take-cats/candela"
         />
+        <BigGoToButton
+            name="Loading"
+            goto="dev/loading"
+        />
     </div>
 </div>
 

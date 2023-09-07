@@ -1,17 +1,22 @@
 <script lang="ts">
+    import LoadingPage from "$lib/components/camera/LoadingPage.svelte"
     import type { DetectedObject } from "@tensorflow-models/coco-ssd"
-    import { onMount } from "svelte"
     import * as cocoSsd from "@tensorflow-models/coco-ssd"
 
     import * as tf from "@tensorflow/tfjs"
     import "@tensorflow/tfjs-backend-webgl"
+    import { onMount } from "svelte"
+    import { writable } from "svelte/store"
 
     let video: HTMLVideoElement
     let canvas: HTMLCanvasElement
     let context: CanvasRenderingContext2D | null
 
+    const isReady = writable(false)
+
     onMount(async () => {
         await tf.setBackend("webgl")
+
         context = canvas.getContext("2d")
         if (!context) return
 
@@ -20,7 +25,11 @@
         video.srcObject = await navigator.mediaDevices.getUserMedia({
             video: { facingMode: "environment" },
             audio: false,
+        }).then((stream) => {
+            isReady.set(true)
+            return stream
         })
+
         video.onloadedmetadata = () => {
             predict(model)
         }
@@ -53,8 +62,11 @@
 </script>
 
 <div class="container">
-    <video id="video" width="640" height="480" autoplay muted playsinline bind:this={video}></video>
+    <video id="video" autoplay muted playsinline bind:this={video}></video>
     <canvas id="canvas" bind:this={canvas}></canvas>
+    {#if $isReady === false}
+        <LoadingPage />
+    {/if}
 </div>
 
 <style>
@@ -66,8 +78,6 @@
 
     #video, #canvas {
         position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
     }

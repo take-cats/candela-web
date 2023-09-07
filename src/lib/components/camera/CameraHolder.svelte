@@ -10,6 +10,6 @@
         background-color: #000;
         color: #fff;
         width: 100vw;
-        height: 80vh;
+        height: 92vh;
     }
 </style>

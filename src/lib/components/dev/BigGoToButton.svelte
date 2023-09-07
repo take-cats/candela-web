@@ -22,7 +22,6 @@
         text-align: center;
         text-decoration: none;
         color: #fff;
-        background-color: #000;
         border-radius: 10px;
         padding: 10px;
         font-size: 1.5rem;
